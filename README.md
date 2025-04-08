@@ -16,8 +16,8 @@ Esta é uma aplicação web simples e responsiva para uma loja fictícia de supl
 
 ## Decisões de Desenvolvimento
 
-- Optamos pelo **Tailwind CSS** para acelerar o processo de estilização, já que ele oferece classes utilitárias e responsividade nativa.
-- Utilizamos **HTML semântico**, com elementos como `<header>`, `<section>` e `<button>`, pensando na acessibilidade.
+- Optei pelo **Tailwind CSS** para acelerar o processo de estilização, já que ele oferece classes utilitárias e responsividade nativa.
+- Utilizei **HTML semântico**, com elementos como `<header>`, `<section>` e `<button>`, pensando na acessibilidade.
 - A imagem foi hospedada externamente, garantindo leveza e praticidade.
 - O botão de ação foi pensado para redirecionar usuários para uma futura seção de produtos ou contato.
 
