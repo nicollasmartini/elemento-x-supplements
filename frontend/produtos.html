@@ -3,57 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elemento X Supplements</title>
+  <title>Todos os Produtos - Elemento X Supplements</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col items-center p-4">
 
   <!-- Cabeçalho -->
   <header class="w-full max-w-2xl text-center my-8">
-    <h1 class="text-4xl md:text-5xl font-extrabold text-green-800 mb-4">Elemento X Supplements</h1>
-    <p class="text-lg md:text-xl text-gray-700">
-      Suplementos de alta qualidade desenvolvidos para atletas e entusiastas do fitness que buscam desempenho superior e resultados extraordinários.
-    </p>
+    <h1 class="text-3xl md:text-4xl font-extrabold text-green-800 mb-2">Todos os Produtos</h1>
+    <p class="text-gray-600 mb-4">Veja a linha completa de suplementos Elemento X para performance, recuperação e saúde.</p>
+    <a href="index.html" class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-200 transition mb-4">
+      &larr; Voltar para a página inicial
+    </a>
   </header>
 
-  <!-- Por que escolher ElementoX? -->
-  <section class="w-full max-w-2xl bg-white rounded-xl shadow-lg p-6 mb-8">
-    <h2 class="text-2xl font-bold text-green-700 mb-4">Por que escolher ElementoX?</h2>
-    <div class="space-y-4">
-      <div>
-        <h3 class="font-semibold text-lg text-gray-800">Qualidade Superior</h3>
-        <p class="text-gray-600">Ingredientes selecionados rigorosamente e testados para garantir a mais alta qualidade e eficácia.</p>
-      </div>
-      <div>
-        <h3 class="font-semibold text-lg text-gray-800">Performance Otimizada</h3>
-        <p class="text-gray-600">Fórmulas desenvolvidas para maximizar sua performance e ajudar a alcançar resultados mais rápidos.</p>
-      </div>
-      <div>
-        <h3 class="font-semibold text-lg text-gray-800">Recuperação Rápida</h3>
-        <p class="text-gray-600">Produtos formulados para ajudar na recuperação muscular e reduzir o tempo entre treinos intensos.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Botão para página de todos os produtos -->
-<div class="w-full max-w-2xl flex justify-center my-8">
-  <a href="produtos.html" class="inline-flex items-center bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-lg text-lg shadow transition">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18M9 3v18m6-18v18" />
-    </svg>
-    Ver todos os produtos
-  </a>
-</div>
-
-  <!-- Produtos em Destaque -->
-  <section class="w-full max-w-4xl">
-    <h2 class="text-2xl font-bold text-green-700 mb-6 text-center">Produtos em Destaque</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+  <!-- Lista de Produtos -->
+  <section class="w-full max-w-5xl">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       <!-- Produto 1 -->
       <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
         <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" alt="Whey Protein Isolate" class="w-32 h-32 object-cover rounded mb-3">
         <h3 class="text-lg font-semibold text-gray-800 text-center">ElementoX Whey Protein Isolate</h3>
-        <p class="text-green-700 font-bold text-xl mt-2 mb-4">R$ 149,90</p>
+        <p class="text-green-700 font-bold text-xl mt-2 mb-1">R$ 149,90</p>
         <button class="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
@@ -65,7 +36,7 @@
       <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
         <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Pré-treino Extreme" class="w-32 h-32 object-cover rounded mb-3">
         <h3 class="text-lg font-semibold text-gray-800 text-center">ElementoX Pre-Workout Extreme</h3>
-        <p class="text-green-700 font-bold text-xl mt-2 mb-4">R$ 89,90</p>
+        <p class="text-green-700 font-bold text-xl mt-2 mb-1">R$ 89,90</p>
         <button class="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
@@ -77,7 +48,7 @@
       <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
         <img src="https://images.unsplash.com/photo-1523473827534-86c1d8c8c8d2?auto=format&fit=crop&w=400&q=80" alt="BCAA 2:1:1" class="w-32 h-32 object-cover rounded mb-3">
         <h3 class="text-lg font-semibold text-gray-800 text-center">ElementoX BCAA 2:1:1 - 60 caps</h3>
-        <p class="text-green-700 font-bold text-xl mt-2 mb-4">R$ 69,90</p>
+        <p class="text-green-700 font-bold text-xl mt-2 mb-1">R$ 69,90</p>
         <button class="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
@@ -89,7 +60,7 @@
       <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
         <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" alt="Creatina Monohidratada" class="w-32 h-32 object-cover rounded mb-3">
         <h3 class="text-lg font-semibold text-gray-800 text-center">ElementoX Creatina Monohidratada</h3>
-        <p class="text-green-700 font-bold text-xl mt-2 mb-4">R$ 99,90</p>
+        <p class="text-green-700 font-bold text-xl mt-2 mb-1">R$ 99,90</p>
         <button class="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
@@ -97,6 +68,7 @@
           Adicionar
         </button>
       </div>
+      <!-- Adicione mais produtos aqui se desejar -->
     </div>
   </section>
 
