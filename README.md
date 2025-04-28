@@ -1,28 +1,85 @@
 # Elemento X Supplements
+Loja fictícia de suplementos alimentares, desenvolvida como projeto integrador para demonstrar conhecimentos em desenvolvimento web, modelagem de banco de dados, controle de versão e garantia de qualidade.
 
-Esta é uma aplicação web simples e responsiva para uma loja fictícia de suplementos, desenvolvida como atividade prática da faculdade.
+## ✨ Visão Geral
+O Elemento X Supplements é uma aplicação web estática que simula uma loja de suplementos esportivos. O projeto inclui:
 
-## Tecnologias Utilizadas
+Interface responsiva desenvolvida com HTML5 e Tailwind CSS
 
-- HTML5 (semântica e acessibilidade)
-- Tailwind CSS (estilização e responsividade)
-- Git e GitHub (controle de versão e publicação)
+Página de produtos em destaque e catálogo completo
 
-## Funcionalidades
+Carrinho de compras funcional usando JavaScript e localStorage
 
-- Tela inicial com cabeçalho, descrição da loja, imagem ilustrativa e botão de ação.
-- Layout responsivo, adaptável a diferentes dispositivos.
-- Código limpo, semântico e acessível.
+Scripts SQL para modelagem e manipulação de banco de dados (pasta sql/)
 
-## Decisões de Desenvolvimento
+Controle de versão com Git e documentação detalhada
 
-- Optei pelo **Tailwind CSS** para acelerar o processo de estilização, já que ele oferece classes utilitárias e responsividade nativa.
-- Utilizei **HTML semântico**, com elementos como `<header>`, `<section>` e `<button>`, pensando na acessibilidade.
-- A imagem foi hospedada externamente, garantindo leveza e praticidade.
-- O botão de ação foi pensado para redirecionar usuários para uma futura seção de produtos ou contato.
+## 🚀 Como Executar
+Clone o repositório
 
-## Como visualizar
+# bash
+git clone https://github.com/seuusuario/elemento-x-supplements.git
+Abra o arquivo index.html no seu navegador para acessar a página principal.
 
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/nicollasmartini/elemento-x-supplements.git
+Navegue entre as páginas:
+
+index.html: Página inicial com produtos em destaque
+
+produtos.html: Catálogo completo de produtos
+
+carrinho.html: Carrinho de compras
+
+## 🛒 Funcionalidades
+Adicionar ao carrinho: Clique em "Adicionar" em qualquer produto para enviá-lo ao carrinho (armazenado no navegador).
+
+Visualizar carrinho: Veja todos os itens adicionados, altere quantidades, remova produtos e veja o valor total.
+
+Catálogo completo: Acesse todos os produtos disponíveis na loja pela página produtos.html.
+
+## 🗂️ Estrutura do Projeto
+text
+elemento-x-supplements/
+├── index.html
+├── produtos.html
+├── carrinho.html
+├── README.md
+└── sql/
+    ├── schema.sql
+    └── operacoes.sql
+index.html: Página inicial e produtos em destaque
+
+produtos.html: Lista completa de produtos
+
+carrinho.html: Carrinho de compras dinâmico
+
+sql/schema.sql: Criação das tabelas do banco de dados
+
+sql/operacoes.sql: Inserção, atualização, remoção e consultas de dados
+
+## 🛠️ Tecnologias Utilizadas
+HTML5
+
+Tailwind CSS
+
+JavaScript (localStorage)
+
+SQL (modelagem e manipulação)
+
+Git e GitHub
+
+## 📋 Scripts SQL
+Os scripts da pasta sql/ podem ser usados para criar e manipular o banco de dados em um SGBD real (ex: SQLite, MySQL, PostgreSQL).
+Obs: O site é estático e não acessa o banco de dados diretamente.
+
+## 📑 Relatórios e Documentação
+Modelagem de banco de dados e scripts SQL na pasta sql/
+
+Relatório de Testes e Garantia de Qualidade disponível no repositório (arquivo PDF)
+
+Histórico de commits detalhado no GitHub
+
+## 👤 Autor
+Nicollas Martini de Lima
+
+## 📄 Licença
+Este projeto é acadêmico e segue as diretrizes da UFMS.
