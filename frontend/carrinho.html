@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho de Compras - Elemento X Supplements</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center p-4">
+
+  <header class="w-full max-w-2xl text-center my-8">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-green-800 mb-2">Carrinho de Compras</h1>
+    <a href="produtos.html" class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-200 transition mb-4">
+      &larr; Continuar comprando
+    </a>
+  </header>
+
+  <section class="w-full max-w-3xl bg-white rounded-xl shadow-lg p-6">
+    <h2 class="text-2xl font-bold text-green-700 mb-6">Itens no Carrinho</h2>
+    <div id="carrinho-itens"></div>
+    <div class="mt-6 text-right">
+      <span class="text-xl font-bold text-gray-800">Total: R$ <span id="total-carrinho">0,00</span></span>
+    </div>
+    <button id="finalizar" class="mt-6 bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg text-lg font-semibold transition">
+      Finalizar Compra
+    </button>
+  </section>
+
+  <script>
+    function renderCarrinho() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const container = document.getElementById('carrinho-itens');
+      if (carrinho.length === 0) {
+        container.innerHTML = '<p class="text-gray-500">Seu carrinho está vazio.</p>';
+        document.getElementById('total-carrinho').textContent = '0,00';
+        return;
+      }
+      let html = '<table class="w-full text-left"><thead><tr><th>Produto</th><th>Qtd</th><th>Preço</th><th>Subtotal</th><th></th></tr></thead><tbody>';
+      let total = 0;
+      carrinho.forEach((item, i) => {
+        const subtotal = item.preco * item.quantidade;
+        total += subtotal;
+        html += `<tr>
+          <td class="py-2">${item.nome}</td>
+          <td>
+            <input type="number" min="1" value="${item.quantidade}" data-index="${i}" class="qtd-input w-16 border rounded px-2 py-1">
+          </td>
+          <td>R$ ${item.preco.toFixed(2)}</td>
+          <td>R$ ${(subtotal).toFixed(2)}</td>
+          <td>
+            <button class="remover bg-red-500 hover:bg-red-700 text-white px-2 py-1 rounded" data-index="${i}">Remover</button>
+          </td>
+        </tr>`;
+      });
+      html += '</tbody></table>';
+      container.innerHTML = html;
+      document.getElementById('total-carrinho').textContent = total.toFixed(2);
+
+      // Atualiza quantidade
+      document.querySelectorAll('.qtd-input').forEach(input => {
+        input.addEventListener('change', function() {
+          const idx = this.getAttribute('data-index');
+          let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+          carrinho[idx].quantidade = parseInt(this.value) || 1;
+          localStorage.setItem('carrinho', JSON.stringify(carrinho));
+          renderCarrinho();
+        });
+      });
+
+      // Remover produto
+      document.querySelectorAll('.remover').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const idx = this.getAttribute('data-index');
+          let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+          carrinho.splice(idx, 1);
+          localStorage.setItem('carrinho', JSON.stringify(carrinho));
+          renderCarrinho();
+        });
+      });
+    }
+
+    renderCarrinho();
+
+    document.getElementById('finalizar').addEventListener('click', function() {
+      alert('Compra finalizada! Obrigado por comprar na Elemento X Supplements.');
+      localStorage.removeItem('carrinho');
+      renderCarrinho();
+    });
+  </script>
+</body>
+</html>

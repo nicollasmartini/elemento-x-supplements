@@ -11,14 +11,22 @@
   <!-- Cabeçalho -->
   <header class="w-full max-w-2xl text-center my-8">
     <h1 class="text-4xl md:text-5xl font-extrabold text-green-800 mb-4">Elemento X Supplements</h1>
-    <p class="text-lg md:text-xl text-gray-700">
+    <!-- Imagem ilustrativa da marca -->
+    <div class="flex justify-center my-6">
+      <img 
+        src="https://img.freepik.com/vetores-gratis/ilustracao-de-shake-de-proteina-desenhada-a-mao_23-2150066087.jpg?t=st=1745798297~exp=1745801897~hmac=cbcd5a40ed1fd4878f57db627e774e7a27edf37d838ecb0d399f9d8baf679601&w=740"
+        alt="Marca Elemento X Supplements"
+        class="rounded-xl shadow-lg w-full max-w-md object-cover"
+      >
+    </div>
+    <p class="text-lg md:text-xl text-gray-700 mt-4">
       Suplementos de alta qualidade desenvolvidos para atletas e entusiastas do fitness que buscam desempenho superior e resultados extraordinários.
     </p>
   </header>
 
   <!-- Por que escolher ElementoX? -->
   <section class="w-full max-w-2xl bg-white rounded-xl shadow-lg p-6 mb-8">
-    <h2 class="text-2xl font-bold text-green-700 mb-4">Por que escolher ElementoX?</h2>
+    <h2 class="text-2xl font-bold text-green-700 mb-4">Por que escolher Elemento X?</h2>
     <div class="space-y-4">
       <div>
         <h3 class="font-semibold text-lg text-gray-800">Qualidade Superior</h3>
@@ -36,14 +44,21 @@
   </section>
 
   <!-- Botão para página de todos os produtos -->
-<div class="w-full max-w-2xl flex justify-center my-8">
-  <a href="produtos.html" class="inline-flex items-center bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-lg text-lg shadow transition">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18M9 3v18m6-18v18" />
-    </svg>
-    Ver todos os produtos
-  </a>
-</div>
+  <div class="w-full max-w-2xl flex justify-center my-4">
+    <a href="produtos.html" class="inline-flex items-center bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-lg text-lg shadow transition mr-4">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18M9 3v18m6-18v18" />
+      </svg>
+      Ver todos os produtos
+    </a>
+    <!-- Botão para página do carrinho -->
+    <a href="carrinho.html" class="inline-flex items-center bg-green-600 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-lg text-lg shadow transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
+      </svg>
+      Ver Carrinho
+    </a>
+  </div>
 
   <!-- Produtos em Destaque -->
   <section class="w-full max-w-4xl">
@@ -51,10 +66,12 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <!-- Produto 1 -->
       <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
-        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" alt="Whey Protein Isolate" class="w-32 h-32 object-cover rounded mb-3">
+        <img src="https://img.freepik.com/vetores-gratis/haltere-mulher-e-nutricao-esportiva_1284-6586.jpg?t=st=1745797714~exp=1745801314~hmac=c53a28c5dff8a9253eec5e29e890ea673bd6ce655918076ebf430b6282a51cd6&w=740" alt="Whey Protein Isolate" class="w-32 h-32 object-cover rounded mb-3">
         <h3 class="text-lg font-semibold text-gray-800 text-center">ElementoX Whey Protein Isolate</h3>
         <p class="text-green-700 font-bold text-xl mt-2 mb-4">R$ 149,90</p>
-        <button class="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition">
+        <button class="adicionar-carrinho flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition"
+          data-nome="ElementoX Whey Protein Isolate"
+          data-preco="149.90">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
           </svg>
@@ -63,10 +80,12 @@
       </div>
       <!-- Produto 2 -->
       <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Pré-treino Extreme" class="w-32 h-32 object-cover rounded mb-3">
+        <img src="https://img.freepik.com/psd-premium/templo-de-midia-social-de-shaker-de-ginasio-de-produto-esportivo-de-cor-verde-limao_823295-326.jpg?semt=ais_hybrid&w=740" alt="Pré-treino Extreme" class="w-32 h-32 object-cover rounded mb-3">
         <h3 class="text-lg font-semibold text-gray-800 text-center">ElementoX Pre-Workout Extreme</h3>
         <p class="text-green-700 font-bold text-xl mt-2 mb-4">R$ 89,90</p>
-        <button class="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition">
+        <button class="adicionar-carrinho flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition"
+          data-nome="ElementoX Pre-Workout Extreme"
+          data-preco="89.90">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
           </svg>
@@ -75,10 +94,12 @@
       </div>
       <!-- Produto 3 -->
       <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
-        <img src="https://images.unsplash.com/photo-1523473827534-86c1d8c8c8d2?auto=format&fit=crop&w=400&q=80" alt="BCAA 2:1:1" class="w-32 h-32 object-cover rounded mb-3">
+        <img src="https://img.freepik.com/fotos-premium/suplementos-alimentares-esportivos_143092-304.jpg?w=740" alt="BCAA 2:1:1" class="w-32 h-32 object-cover rounded mb-3">
         <h3 class="text-lg font-semibold text-gray-800 text-center">ElementoX BCAA 2:1:1 - 60 caps</h3>
         <p class="text-green-700 font-bold text-xl mt-2 mb-4">R$ 69,90</p>
-        <button class="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition">
+        <button class="adicionar-carrinho flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition"
+          data-nome="ElementoX BCAA 2:1:1 - 60 caps"
+          data-preco="69.90">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
           </svg>
@@ -87,10 +108,12 @@
       </div>
       <!-- Produto 4 -->
       <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
-        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" alt="Creatina Monohidratada" class="w-32 h-32 object-cover rounded mb-3">
+        <img src="https://img.freepik.com/vetores-gratis/conjunto-realista-de-dois-halteres-e-suplemento-desportivo-na-superficie-vidrada-na-ilustracao-vetorial-de-fundo-branco_1284-19886.jpg?t=st=1745797662~exp=1745801262~hmac=5d5f873a734c21c3a0f55150521bbe553cf1c708f7c2c2136ee4af6c83a971bd&w=740" alt="Creatina Monohidratada" class="w-32 h-32 object-cover rounded mb-3">
         <h3 class="text-lg font-semibold text-gray-800 text-center">ElementoX Creatina Monohidratada</h3>
         <p class="text-green-700 font-bold text-xl mt-2 mb-4">R$ 99,90</p>
-        <button class="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition">
+        <button class="adicionar-carrinho flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition"
+          data-nome="ElementoX Creatina Monohidratada"
+          data-preco="99.90">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
           </svg>
@@ -104,5 +127,24 @@
   <footer class="w-full max-w-2xl text-center mt-12 text-gray-400 text-sm">
     &copy; 2025 Elemento X Supplements. Todos os direitos reservados.
   </footer>
+
+  <!-- Script do Carrinho -->
+  <script>
+    document.querySelectorAll('.adicionar-carrinho').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const nome = this.getAttribute('data-nome');
+        const preco = parseFloat(this.getAttribute('data-preco'));
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        const index = carrinho.findIndex(item => item.nome === nome);
+        if (index > -1) {
+          carrinho[index].quantidade += 1;
+        } else {
+          carrinho.push({ nome, preco, quantidade: 1 });
+        }
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        alert('Produto adicionado ao carrinho!');
+      });
+    });
+  </script>
 </body>
 </html>
