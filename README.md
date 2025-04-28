@@ -17,8 +17,8 @@ Controle de versão com Git e documentação detalhada
 ## 🚀 Como Executar
 Clone o repositório
 
-# bash
-git clone https://github.com/seuusuario/elemento-x-supplements.git
+bash
+git clone https://github.com/nicollasmartini/elemento-x-supplements/
 Abra o arquivo index.html no seu navegador para acessar a página principal.
 
 Navegue entre as páginas:
@@ -28,6 +28,8 @@ index.html: Página inicial com produtos em destaque
 produtos.html: Catálogo completo de produtos
 
 carrinho.html: Carrinho de compras
+
+OU acesse pelo Vercel: [https://github.com/nicollasmartini/elemento-x-supplements/](https://v0-elemento-x-supplements-aq5jmhczu-nicollas-martinis-projects.vercel.app)
 
 ## 🛒 Funcionalidades
 Adicionar ao carrinho: Clique em "Adicionar" em qualquer produto para enviá-lo ao carrinho (armazenado no navegador).
