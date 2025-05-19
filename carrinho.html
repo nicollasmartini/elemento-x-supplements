@@ -26,7 +26,17 @@
     </button>
   </section>
 
+  <!-- Histórico de Pedidos -->
+  <section class="w-full max-w-3xl bg-white rounded-xl shadow-lg p-6 mt-8">
+    <h2 class="text-2xl font-bold text-green-700 mb-6">Histórico de Pedidos</h2>
+    <div id="historico-pedidos" class="overflow-x-auto">
+      <!-- Histórico será carregado aqui -->
+      <p class="text-gray-500">Carregando histórico de pedidos...</p>
+    </div>
+  </section>
+
   <script>
+    // Função para renderizar o carrinho
     function renderCarrinho() {
       const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
       const container = document.getElementById('carrinho-itens');
@@ -79,12 +89,99 @@
       });
     }
 
-    renderCarrinho();
+    // Função para carregar histórico de pedidos
+    async function carregarHistoricoPedidos() {
+      try {
+        const response = await fetch('/api/pedidos');
+        if (!response.ok) {
+          throw new Error('Erro ao carregar histórico de pedidos');
+        }
+        
+        const pedidos = await response.json();
+        const container = document.getElementById('historico-pedidos');
+        
+        if (pedidos.length === 0) {
+          container.innerHTML = '<p class="text-gray-500">Nenhum pedido realizado ainda.</p>';
+          return;
+        }
+        
+        let html = '<table class="w-full text-left border-collapse"><thead><tr class="bg-gray-100"><th class="border px-4 py-2">ID</th><th class="border px-4 py-2">Produto</th><th class="border px-4 py-2">Quantidade</th><th class="border px-4 py-2">Data</th><th class="border px-4 py-2">Valor</th></tr></thead><tbody>';
+        
+        pedidos.forEach(pedido => {
+          const valorTotal = pedido.preco * pedido.quantidade;
+          html += `<tr>
+            <td class="border px-4 py-2">${pedido.id}</td>
+            <td class="border px-4 py-2">${pedido.produto_nome}</td>
+            <td class="border px-4 py-2">${pedido.quantidade}</td>
+            <td class="border px-4 py-2">${pedido.data_pedido}</td>
+            <td class="border px-4 py-2">R$ ${valorTotal.toFixed(2)}</td>
+          </tr>`;
+        });
+        
+        html += '</tbody></table>';
+        container.innerHTML = html;
+        
+      } catch (error) {
+        console.error('Erro:', error);
+        document.getElementById('historico-pedidos').innerHTML = 
+          '<p class="text-red-500">Erro ao carregar histórico de pedidos. Por favor, tente novamente mais tarde.</p>';
+      }
+    }
 
-    document.getElementById('finalizar').addEventListener('click', function() {
-      alert('Compra finalizada! Obrigado por comprar na Elemento X Supplements.');
-      localStorage.removeItem('carrinho');
+    // Função para finalizar a compra
+    async function finalizarCompra() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      
+      if (carrinho.length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+      }
+      
+      try {
+        // Preparar itens para envio
+        const itens = carrinho.map(item => ({
+          produto_id: item.produto_id,
+          quantidade: item.quantidade
+        }));
+        
+        // Enviar pedido para a API
+        const response = await fetch('/api/finalizar-compra', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ itens: itens })
+        });
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Erro ao finalizar compra');
+        }
+        
+        const result = await response.json();
+        
+        // Limpar carrinho
+        localStorage.removeItem('carrinho');
+        renderCarrinho();
+        
+        // Atualizar histórico de pedidos
+        carregarHistoricoPedidos();
+        
+        alert('Compra finalizada com sucesso! Obrigado por comprar na Elemento X Supplements.');
+        
+      } catch (error) {
+        console.error('Erro:', error);
+        alert(`Erro ao finalizar compra: ${error.message}`);
+      }
+    }
+
+    // Inicializar página
+    document.addEventListener('DOMContentLoaded', () => {
       renderCarrinho();
+      carregarHistoricoPedidos();
+      
+      // Evento para finalizar compra
+      document.getElementById('finalizar').addEventListener('click', finalizarCompra);
     });
   </script>
 </body>

@@ -22,66 +22,73 @@
     </div>
   </header>
 
+  <!-- Área de Administração (Visível apenas para administradores) -->
+  <section id="admin-area" class="w-full max-w-5xl bg-white rounded-xl shadow-lg p-6 mb-8 hidden">
+    <h2 class="text-2xl font-bold text-green-700 mb-4">Administração de Produtos</h2>
+    
+    <!-- Formulário para adicionar/editar produto -->
+    <form id="produto-form" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <input type="hidden" id="produto-id">
+      <div class="col-span-1">
+        <label for="produto-nome" class="block text-gray-700 mb-1">Nome do Produto</label>
+        <input type="text" id="produto-nome" class="w-full border rounded-lg px-3 py-2" required>
+      </div>
+      <div class="col-span-1">
+        <label for="produto-preco" class="block text-gray-700 mb-1">Preço (R$)</label>
+        <input type="number" id="produto-preco" step="0.01" min="0" class="w-full border rounded-lg px-3 py-2" required>
+      </div>
+      <div class="col-span-1">
+        <label for="produto-estoque" class="block text-gray-700 mb-1">Estoque</label>
+        <input type="number" id="produto-estoque" min="0" class="w-full border rounded-lg px-3 py-2" required>
+      </div>
+      <div class="col-span-1 flex items-end">
+        <button type="submit" id="salvar-produto" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold">
+          Salvar Produto
+        </button>
+        <button type="button" id="cancelar-edicao" class="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg font-semibold">
+          Cancelar
+        </button>
+      </div>
+    </form>
+    
+    <!-- Tabela de produtos para administração -->
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="bg-gray-100">
+            <th class="border px-4 py-2 text-left">ID</th>
+            <th class="border px-4 py-2 text-left">Nome</th>
+            <th class="border px-4 py-2 text-left">Preço</th>
+            <th class="border px-4 py-2 text-left">Estoque</th>
+            <th class="border px-4 py-2 text-left">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="admin-produtos-lista">
+          <!-- Lista de produtos para administração será carregada aqui -->
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Botão para mostrar/esconder área de administração -->
+    <div class="mt-4 text-right">
+      <button id="toggle-admin" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-3 py-1 rounded text-sm">
+        Esconder Administração
+      </button>
+    </div>
+  </section>
+
+  <!-- Botão para mostrar área de administração (visível apenas quando área está escondida) -->
+  <div id="show-admin-btn" class="w-full max-w-5xl mb-4 text-right">
+    <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-3 py-1 rounded text-sm">
+      Mostrar Administração
+    </button>
+  </div>
+
   <!-- Lista de Produtos -->
   <section class="w-full max-w-5xl">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <!-- Produto 1 -->
-      <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
-        <img src="https://img.freepik.com/vetores-gratis/haltere-mulher-e-nutricao-esportiva_1284-6586.jpg?t=st=1745797714~exp=1745801314~hmac=c53a28c5dff8a9253eec5e29e890ea673bd6ce655918076ebf430b6282a51cd6&w=740" alt="Whey Protein Isolate" class="w-32 h-32 object-cover rounded mb-3">
-        <h3 class="text-lg font-semibold text-gray-800 text-center">ElementoX Whey Protein Isolate</h3>
-        <p class="text-green-700 font-bold text-xl mt-2 mb-1">R$ 149,90</p>
-        <button class="adicionar-carrinho flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition"
-          data-nome="ElementoX Whey Protein Isolate"
-          data-preco="149.90">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
-          </svg>
-          Adicionar
-        </button>
-      </div>
-      <!-- Produto 2 -->
-      <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
-        <img src="https://img.freepik.com/psd-premium/templo-de-midia-social-de-shaker-de-ginasio-de-produto-esportivo-de-cor-verde-limao_823295-326.jpg?semt=ais_hybrid&w=740" alt="Pré-treino Extreme" class="w-32 h-32 object-cover rounded mb-3">
-        <h3 class="text-lg font-semibold text-gray-800 text-center">ElementoX Pre-Workout Extreme</h3>
-        <p class="text-green-700 font-bold text-xl mt-2 mb-1">R$ 89,90</p>
-        <button class="adicionar-carrinho flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition"
-          data-nome="ElementoX Pre-Workout Extreme"
-          data-preco="89.90">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
-          </svg>
-          Adicionar
-        </button>
-      </div>
-      <!-- Produto 3 -->
-      <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
-        <img src="https://img.freepik.com/fotos-premium/suplementos-alimentares-esportivos_143092-304.jpg?w=740" alt="BCAA 2:1:1" class="w-32 h-32 object-cover rounded mb-3">
-        <h3 class="text-lg font-semibold text-gray-800 text-center">ElementoX BCAA 2:1:1 - 60 caps</h3>
-        <p class="text-green-700 font-bold text-xl mt-2 mb-1">R$ 69,90</p>
-        <button class="adicionar-carrinho flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition"
-          data-nome="ElementoX BCAA 2:1:1 - 60 caps"
-          data-preco="69.90">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
-          </svg>
-          Adicionar
-        </button>
-      </div>
-      <!-- Produto 4 -->
-      <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
-        <img src="https://img.freepik.com/vetores-gratis/conjunto-realista-de-dois-halteres-e-suplemento-desportivo-na-superficie-vidrada-na-ilustracao-vetorial-de-fundo-branco_1284-19886.jpg?t=st=1745797662~exp=1745801262~hmac=5d5f873a734c21c3a0f55150521bbe553cf1c708f7c2c2136ee4af6c83a971bd&w=740" alt="Creatina Monohidratada" class="w-32 h-32 object-cover rounded mb-3">
-        <h3 class="text-lg font-semibold text-gray-800 text-center">ElementoX Creatina Monohidratada</h3>
-        <p class="text-green-700 font-bold text-xl mt-2 mb-1">R$ 99,90</p>
-        <button class="adicionar-carrinho flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition"
-          data-nome="ElementoX Creatina Monohidratada"
-          data-preco="99.90">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
-          </svg>
-          Adicionar
-        </button>
-      </div>
-      <!-- Adicione mais produtos aqui se desejar -->
+    <div id="produtos-lista" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Os produtos serão carregados dinamicamente via JavaScript -->
+      <div class="text-center p-4 col-span-full">Carregando produtos...</div>
     </div>
   </section>
 
@@ -90,22 +97,278 @@
     &copy; 2025 Elemento X Supplements. Todos os direitos reservados.
   </footer>
 
-  <!-- Script para adicionar ao carrinho -->
+  <!-- Script para gerenciar produtos -->
   <script>
-    document.querySelectorAll('.adicionar-carrinho').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const nome = this.getAttribute('data-nome');
-        const preco = parseFloat(this.getAttribute('data-preco'));
-        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-        const index = carrinho.findIndex(item => item.nome === nome);
-        if (index > -1) {
-          carrinho[index].quantidade += 1;
-        } else {
-          carrinho.push({ nome, preco, quantidade: 1 });
+    // Variáveis globais
+    let editandoProdutoId = null;
+    const imagens = [
+      "https://img.freepik.com/vetores-gratis/haltere-mulher-e-nutricao-esportiva_1284-6586.jpg?t=st=1745797714~exp=1745801314~hmac=c53a28c5dff8a9253eec5e29e890ea673bd6ce655918076ebf430b6282a51cd6&w=740",
+      "https://img.freepik.com/psd-premium/templo-de-midia-social-de-shaker-de-ginasio-de-produto-esportivo-de-cor-verde-limao_823295-326.jpg?semt=ais_hybrid&w=740",
+      "https://img.freepik.com/fotos-premium/suplementos-alimentares-esportivos_143092-304.jpg?w=740",
+      "https://img.freepik.com/vetores-gratis/conjunto-realista-de-dois-halteres-e-suplemento-desportivo-na-superficie-vidrada-na-ilustracao-vetorial-de-fundo-branco_1284-19886.jpg?t=st=1745797662~exp=1745801262~hmac=5d5f873a734c21c3a0f55150521bbe553cf1c708f7c2c2136ee4af6c83a971bd&w=740"
+    ];
+
+    // Função para carregar todos os produtos
+    async function carregarProdutos() {
+      try {
+        const response = await fetch('/api/produtos');
+        if (!response.ok) {
+          throw new Error('Erro ao carregar produtos');
         }
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
-        alert('Produto adicionado ao carrinho!');
+        
+        const produtos = await response.json();
+        const container = document.getElementById('produtos-lista');
+        
+        // Limpar o container
+        container.innerHTML = '';
+        
+        if (produtos.length === 0) {
+          container.innerHTML = '<div class="col-span-full text-center">Nenhum produto disponível no momento.</div>';
+          return;
+        }
+        
+        // Criar cards para cada produto
+        produtos.forEach(produto => {
+          const imagemIndex = (produto.id - 1) % imagens.length;
+          const imagemUrl = imagens[imagemIndex];
+          
+          const produtoHtml = `
+            <div class="bg-white rounded-xl shadow-md p-5 flex flex-col items-center">
+              <img src="${imagemUrl}" alt="${produto.nome}" class="w-32 h-32 object-cover rounded mb-3">
+              <h3 class="text-lg font-semibold text-gray-800 text-center">${produto.nome}</h3>
+              <p class="text-green-700 font-bold text-xl mt-2 mb-1">R$ ${produto.preco.toFixed(2)}</p>
+              <button class="adicionar-carrinho flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-semibold transition"
+                data-id="${produto.id}"
+                data-nome="${produto.nome}"
+                data-preco="${produto.preco}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.6 17h8.8a1 1 0 00.95-.68L21 9M7 13V6a1 1 0 011-1h5a1 1 0 011 1v7" />
+                </svg>
+                Adicionar
+              </button>
+            </div>
+          `;
+          
+          container.innerHTML += produtoHtml;
+        });
+        
+        // Adicionar event listeners aos botões
+        document.querySelectorAll('.adicionar-carrinho').forEach(btn => {
+          btn.addEventListener('click', adicionarAoCarrinho);
+        });
+        
+        // Atualizar também a lista de administração
+        atualizarListaAdmin(produtos);
+        
+      } catch (error) {
+        console.error('Erro:', error);
+        document.getElementById('produtos-lista').innerHTML = 
+          '<div class="col-span-full text-center text-red-500">Erro ao carregar produtos. Por favor, tente novamente mais tarde.</div>';
+      }
+    }
+    
+    // Função para atualizar a lista de administração
+    function atualizarListaAdmin(produtos) {
+      const tbody = document.getElementById('admin-produtos-lista');
+      tbody.innerHTML = '';
+      
+      produtos.forEach(produto => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="border px-4 py-2">${produto.id}</td>
+          <td class="border px-4 py-2">${produto.nome}</td>
+          <td class="border px-4 py-2">R$ ${produto.preco.toFixed(2)}</td>
+          <td class="border px-4 py-2">${produto.estoque}</td>
+          <td class="border px-4 py-2">
+            <button class="editar-produto bg-blue-500 hover:bg-blue-700 text-white px-2 py-1 rounded mr-1" data-id="${produto.id}">
+              Editar
+            </button>
+            <button class="excluir-produto bg-red-500 hover:bg-red-700 text-white px-2 py-1 rounded" data-id="${produto.id}">
+              Excluir
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
       });
+      
+      // Adicionar event listeners aos botões
+      document.querySelectorAll('.editar-produto').forEach(btn => {
+        btn.addEventListener('click', editarProduto);
+      });
+      
+      document.querySelectorAll('.excluir-produto').forEach(btn => {
+        btn.addEventListener('click', excluirProduto);
+      });
+    }
+    
+    // Função para adicionar produto ao carrinho
+    function adicionarAoCarrinho() {
+      const produtoId = this.getAttribute('data-id');
+      const nome = this.getAttribute('data-nome');
+      const preco = parseFloat(this.getAttribute('data-preco'));
+      
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const index = carrinho.findIndex(item => item.produto_id === produtoId);
+      
+      if (index > -1) {
+        carrinho[index].quantidade += 1;
+      } else {
+        carrinho.push({ 
+          produto_id: produtoId,
+          nome: nome, 
+          preco: preco, 
+          quantidade: 1 
+        });
+      }
+      
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      alert('Produto adicionado ao carrinho!');
+    }
+    
+    // Função para editar um produto
+    async function editarProduto() {
+      const produtoId = this.getAttribute('data-id');
+      
+      try {
+        const response = await fetch(`/api/produtos/${produtoId}`);
+        if (!response.ok) {
+          throw new Error('Erro ao carregar dados do produto');
+        }
+        
+        const produto = await response.json();
+        
+        // Preencher o formulário com os dados do produto
+        document.getElementById('produto-id').value = produto.id;
+        document.getElementById('produto-nome').value = produto.nome;
+        document.getElementById('produto-preco').value = produto.preco;
+        document.getElementById('produto-estoque').value = produto.estoque;
+        
+        // Marcar que estamos editando
+        editandoProdutoId = produto.id;
+        
+        // Rolar para o formulário
+        document.getElementById('admin-area').scrollIntoView({ behavior: 'smooth' });
+        
+      } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao carregar dados do produto para edição.');
+      }
+    }
+    
+    // Função para excluir um produto
+    async function excluirProduto() {
+      if (!confirm('Tem certeza que deseja excluir este produto?')) {
+        return;
+      }
+      
+      const produtoId = this.getAttribute('data-id');
+      
+      try {
+        const response = await fetch(`/api/produtos/${produtoId}`, {
+          method: 'DELETE'
+        });
+        
+        if (!response.ok) {
+          throw new Error('Erro ao excluir produto');
+        }
+        
+        alert('Produto excluído com sucesso!');
+        carregarProdutos(); // Recarregar a lista
+        
+      } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao excluir produto.');
+      }
+    }
+    
+    // Função para salvar um produto (criar ou atualizar)
+    async function salvarProduto(event) {
+      event.preventDefault();
+      
+      const nome = document.getElementById('produto-nome').value;
+      const preco = parseFloat(document.getElementById('produto-preco').value);
+      const estoque = parseInt(document.getElementById('produto-estoque').value);
+      
+      const produtoData = {
+        nome: nome,
+        preco: preco,
+        estoque: estoque
+      };
+      
+      try {
+        let url = '/api/produtos';
+        let method = 'POST';
+        
+        // Se estiver editando, usar PUT
+        if (editandoProdutoId) {
+          url = `/api/produtos/${editandoProdutoId}`;
+          method = 'PUT';
+        }
+        
+        const response = await fetch(url, {
+          method: method,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(produtoData)
+        });
+        
+        if (!response.ok) {
+          throw new Error('Erro ao salvar produto');
+        }
+        
+        alert(editandoProdutoId ? 'Produto atualizado com sucesso!' : 'Produto criado com sucesso!');
+        
+        // Limpar formulário
+        document.getElementById('produto-form').reset();
+        document.getElementById('produto-id').value = '';
+        editandoProdutoId = null;
+        
+        // Recarregar a lista
+        carregarProdutos();
+        
+      } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao salvar produto.');
+      }
+    }
+    
+    // Função para cancelar edição
+    function cancelarEdicao() {
+      document.getElementById('produto-form').reset();
+      document.getElementById('produto-id').value = '';
+      editandoProdutoId = null;
+    }
+    
+    // Função para alternar visibilidade da área de administração
+    function toggleAdminArea() {
+      const adminArea = document.getElementById('admin-area');
+      const showAdminBtn = document.getElementById('show-admin-btn');
+      
+      if (adminArea.classList.contains('hidden')) {
+        adminArea.classList.remove('hidden');
+        showAdminBtn.classList.add('hidden');
+        document.getElementById('toggle-admin').textContent = 'Esconder Administração';
+      } else {
+        adminArea.classList.add('hidden');
+        showAdminBtn.classList.remove('hidden');
+      }
+    }
+    
+    // Event listeners
+    document.addEventListener('DOMContentLoaded', () => {
+      // Carregar produtos
+      carregarProdutos();
+      
+      // Form submit
+      document.getElementById('produto-form').addEventListener('submit', salvarProduto);
+      
+      // Cancelar edição
+      document.getElementById('cancelar-edicao').addEventListener('click', cancelarEdicao);
+      
+      // Toggle admin area
+      document.getElementById('toggle-admin').addEventListener('click', toggleAdminArea);
+      document.getElementById('show-admin-btn').addEventListener('click', toggleAdminArea);
     });
   </script>
 </body>
